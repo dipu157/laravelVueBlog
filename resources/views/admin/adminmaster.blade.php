@@ -52,38 +52,30 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <router-link to="/home" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
                 <i class="right fas fa-angle-left"></i>
               </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="../../index.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v1</p>
-                </a>
-              </li>
-            </ul>
+            </router-link>
           </li>
           <li class="nav-item">
-            <a href="../widgets.html" class="nav-link">
+            <router-link to="/category-list" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Category
               </p>
-            </a>
+            </router-link>
           </li>
           <li class="nav-item">
-            <a href="../widgets.html" class="nav-link">
+            <router-link to="/posts" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Posts
                 <span class="right badge badge-danger">New</span>
               </p>
-            </a>
+            </router-link>
           </li>
         </ul>
       </nav>
@@ -94,22 +86,6 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1>Blank Page</h1>
-          </div>
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Blank Page</li>
-            </ol>
-          </div>
-        </div>
-      </div><!-- /.container-fluid -->
-    </section>
 
     <admin-main></admin-main>
   </div>
