@@ -18,16 +18,18 @@
 									<tr>
 										<th>Sl</th>
 										<th>Category Name</th>
+										<th>Date</th>
 										<th width="200px">Action</th>
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
-										<td>1</td>
-										<td>Internet</td>
+									<tr v-for="(category,index) in getallCategory">
+										<td>{{index+1}}</td>
+										<td>{{category.name}}</td>
+										<td>{{category.created_at | timeformat }}</td>
 										<td width="200px">
-											<button class="btn btn-primary btn-sm">Edit</button>
-											<button class="btn btn-danger btn-sm">Delete</button>
+											<button class="btn btn-primary btn-sm"><router-link style="color: #ffff" :to="`/edit-category/${category.id}`">Edit</router-link></button>
+											<button @click.prevent="deletecategory(category.id)" class="btn btn-danger btn-sm">Delete</button>
 										</td>
 									</tr>
 								</tbody>
@@ -40,3 +42,30 @@
 		</section>
 	</div>
 </template>
+
+<script>
+	export default{
+
+		name: "List",
+		mounted(){
+			return this.$store.dispatch("allCategory")
+		},
+		computed:{
+			getallCategory(){
+				return this.$store.getters.getCategory
+			}
+		},
+		methods:{
+			deletecategory(id){
+				axios.get('/category/'+id)
+				.then(()=>{
+					this.$store.dispatch("allCategory")
+					Toast.fire({
+					  icon: 'success',
+					  title: 'category Deleted successfully'
+					})
+				})
+			}
+		}
+	}
+</script>
