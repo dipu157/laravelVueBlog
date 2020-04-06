@@ -28,10 +28,10 @@
 								<tbody>
 									<tr v-for="(post,index) in allpost">
 										<td>{{index+1}}</td>
-										<td>Cat</td>
-										<td>User</td>
-										<td>{{post.title}}</td>
-										<td>{{post.description}}</td>
+										<td>{{post.category.name}}</td>
+										<td v-if="post.user">{{post.user.name}}</td>
+										<td v-if="post.category">{{post.title | sortlength(20,"...")}}</td>
+										<td>{{post.description | sortlength(50,"...")}}</td>
 										<td><img :src="post.photo" width="60" height="70"></td>
 										<td width="200px">
 											<button class="btn btn-primary btn-sm">Edit</button>
