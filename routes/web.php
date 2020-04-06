@@ -28,4 +28,5 @@ Route::post('/update-category/{id}', 'CategoryController@updateCategory');
 
 // post
 Route::get('/post', 'PostController@all_posts');
+Route::post('/savepost', 'PostController@savePost');
 

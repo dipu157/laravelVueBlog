@@ -4,6 +4,10 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+import 'v-markdown-editor/dist/v-markdown-editor.css';
+import Editor from 'v-markdown-editor'
+Vue.use(Editor);
+
 import Vuex from 'vuex'
 Vue.use(Vuex)
 import storeData from "./store/index"

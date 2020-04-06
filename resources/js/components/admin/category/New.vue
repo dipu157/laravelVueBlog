@@ -46,7 +46,8 @@
 		methods:{
 			addCategory(){
 				this.form.post('/add-category')
-        		.then(({ response }) => { this.$router.push('/category-list')
+        		.then(({ response }) => { 
+        			this.$router.push('/category-list')
 
 					Toast.fire({
 					  icon: 'success',

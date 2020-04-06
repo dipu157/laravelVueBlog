@@ -8,7 +8,7 @@
 							<h3 class="card-title">Post List</h3>
 
 							<button class="btn btn-primary float-right">
-								<router-link to="" style="color: #ffff">Add Post</router-link>
+								<router-link to="/add-post" style="color: #ffff">Add Post</router-link>
 							</button>
 						</div>
 						<!-- /.card-header -->
@@ -63,7 +63,7 @@
 			}
 		},
 		methods:{
-
+			
 		}
 	}
 </script>
