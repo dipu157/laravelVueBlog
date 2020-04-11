@@ -81,13 +81,24 @@
 		},
 		methods:{
 			changePhoto(event){
-			  var file = event.target.files[0];
-			  var reader = new FileReader();
-			  reader.onload = event => {
-			  	this.form.photo = event.target.result
-			  };
+			  let file = event.target.files[0];
 
-			  reader.readAsDataURL(file);
+			  if(file.size>1048576){
+			  		Swal.fire({
+						  icon: 'error',
+						  title: 'Oops...',
+						  text: 'Image Size should less then 1 MB!',
+						  footer: '<a href>Why do I have this issue?</a>'
+						})
+			  }else{
+				  	let reader = new FileReader();
+					  reader.onload = event => {
+					  	this.form.photo = event.target.result
+					  };
+
+					  reader.readAsDataURL(file);
+			  }
+			  
 			},
 
 			addnewPost(){

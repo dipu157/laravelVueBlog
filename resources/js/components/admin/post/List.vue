@@ -32,10 +32,10 @@
 										<td v-if="post.user">{{post.user.name}}</td>
 										<td v-if="post.category">{{post.title | sortlength(20,"...")}}</td>
 										<td>{{post.description | sortlength(50,"...")}}</td>
-										<td><img :src="post.photo" width="60" height="70"></td>
+										<td><img :src="ourImage(post.photo)" width="60" height="70"></td>
 										<td width="200px">
-											<button class="btn btn-primary btn-sm">Edit</button>
-											<button class="btn btn-danger btn-sm">Delete</button>
+											<button class="btn btn-primary btn-sm"><router-link :to="`/edit-post/${post.id}`" style="color: #ffff">Edit</router-link></button>
+											<button class="btn btn-danger btn-sm" @click.prevent="deletePost(post.id)">Delete</button>
 										</td>
 									</tr>
 								</tbody>
@@ -63,7 +63,22 @@
 			}
 		},
 		methods:{
-			
+			ourImage(img){
+				return "uploadimage/"+img;
+			},
+			deletePost(id){
+				axios.get('/delete/'+id)
+					.then(()=>{
+						this.$store.dispatch('getAllpost')
+						Toast.fire({
+						  icon: 'success',
+						  title: 'Post Deleted successfully'
+						})
+					})
+					.catch(()=>{
+
+					})
+			}
 		}
 	}
 </script>
