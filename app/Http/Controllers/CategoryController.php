@@ -7,6 +7,7 @@ use App\Category;
 
 class CategoryController extends Controller
 {
+    
 
     public function saveCategory(Request $request){
 

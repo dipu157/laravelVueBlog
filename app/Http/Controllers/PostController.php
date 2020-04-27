@@ -9,6 +9,11 @@ use Image;
 
 class PostController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function all_posts(){
 
     	 $posts = Post::with('category','user')->latest()->get();

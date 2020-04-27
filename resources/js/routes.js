@@ -7,6 +7,10 @@ import PostList from './components/admin/post/List.vue'
 import AddPost from './components/admin/post/New.vue'
 import EditPost from './components/admin/post/Edit.vue'
 
+//Front End 
+
+import PublicHome from './components/public/PublicHome.vue'
+
 
 export const routes = [
 	{
@@ -39,6 +43,13 @@ export const routes = [
 	{
 		path: '/edit-post/:postid',
 		component: EditPost
+	},
+
+	// Front End 
+
+	{
+		path: '/',
+		component: PublicHome
 	},
 
 ]
